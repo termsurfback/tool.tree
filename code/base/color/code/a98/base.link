@@ -1,0 +1,18 @@
+
+load @tunebond/nest/code/shared
+  take tree access
+
+form a98
+  fuse access, term r
+  fuse access, term g
+  fuse access, term b
+  fuse access, term alpha
+
+  task convert-to-rgb
+    free result, like rgb-color
+
+host channel
+  term r
+  term g
+  term b
+  term alpha

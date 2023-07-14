@@ -1,0 +1,33 @@
+
+form request
+  take x-request
+    hide true
+
+  task get-header-by-key
+    take self
+    take key
+    call self/x-request/get-header
+      loan key
+
+  task get-headers-iterator
+    make object-iterator
+      call self/x-request/headers
+
+  task get-body
+
+  task get-host
+    loan self/x-request/host
+
+  task get-http-version
+    loan self/x-request/http-version
+
+  task get-protocol
+    loan self/x-request/protocol
+
+  task get-method
+    loan self/x-request/method
+
+  task get-path
+    loan self/x-request/path
+
+  task get-ip-address

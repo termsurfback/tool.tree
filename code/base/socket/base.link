@@ -1,0 +1,59 @@
+# https://api.haxe.org/sys/net/Socket.html
+# https://api.haxe.org/Array.html
+
+form socket
+  task bind
+    take host, like host
+    take port, like int
+    like void
+
+  task close
+    like void
+
+  task connect
+    take host, like host
+    take port, like int
+    like void
+
+  task host
+    like dynamic
+    fields
+      port, like int
+      host, like host
+
+  task listen
+    take connections, like int
+    like void
+
+  task peer
+    like dynamic
+    fields
+      port, like int
+      host, like host
+
+  task read
+    like string
+
+  task set-blocking
+    take b, like bool
+    like void
+
+  task set-fast-send
+    take b, like bool
+    like void
+
+  task set-timeout
+    take timeout, like float
+    like void
+
+  task shutdown
+    take read, like bool
+    take write, like bool
+    like void
+
+  task wait-for-read
+    like void
+
+  task write
+    take content, like string
+    like void

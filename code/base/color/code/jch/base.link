@@ -1,0 +1,29 @@
+
+load @tunebond/nest/code/shared
+  take tree access
+
+form jch
+  fuse access, term j
+  fuse access, term c
+  fuse access, term h
+  fuse access, term alpha
+
+  task convert-to-rgb
+    free result, like rgb-color
+
+host channel
+  term j
+  term c
+  term h
+  term alpha
+
+host range
+  host j
+    host start, size 0
+    host end, size 0.221
+  host c
+    host start, size 0
+    host end, size 0.19
+  host h
+    host start, size 0
+    host end, size 360

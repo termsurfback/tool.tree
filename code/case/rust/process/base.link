@@ -1,0 +1,3 @@
+
+task get-args
+  env::args().collect()

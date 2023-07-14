@@ -1,0 +1,127 @@
+
+task read-user-home-link
+
+task read-user-name
+
+task read-temporary-directory
+
+task read-folder
+  note <List folder items>
+
+task trash-folder
+
+task trash-file
+
+task replace-file
+
+task replace-folder
+
+task copy-file
+
+task copy-folder
+
+task move-file
+
+task move-folder
+
+task make-soft-file-link
+
+task make-hard-file-link
+
+task make-soft-folder-link
+
+task make-hard-folder-link
+
+task test-file-exists
+
+task test-folder-exists
+
+task test-file-is-readable
+
+task test-file-is-writable
+
+task test-file-is-executable
+
+task read-file-metadata
+
+task read-directory-metadata
+
+task test-file-content-is-equal
+  take base
+  take head
+
+task read-current-folder-link
+
+task change-current-folder-link
+
+
+task open
+  take path
+  free file, like file
+
+form file
+  note <Cross platform representation of a file handle.>
+
+  task get-path
+  task move
+  task remove
+  task close
+  task stage-permission-change
+  task flush-permission-change
+  task abort-permission-change
+
+form descriptor
+  note <Abstract representation of a file descriptor. On Unix systems this is a typedef of int and on Windows a HANDLE.>
+
+host permission
+  host can-read-flag, mark #b1
+  host can-write-flag, mark #b10
+  host can-create-flag, mark #b100
+  host can-append-flag, mark #b1000
+  host can-clear-flag, mark #b10000
+  host can-read-write-flag, mark #b11
+  host can-create-clear-write-flag, mark #b10110
+  host can-create-write-flag, mark #b110
+  host can-create-clear-read-write-flag, mark #b10111
+  host can-create-read-write-flag, mark #b111
+  host can-create-clear-append-flag, mark #b11100
+  host can-create-append-flag, mark #b1100
+  host can-create-clear-read-append-flag, mark #b11101
+  host can-create-read-append-flag, mark #b1101
+
+host mode
+  host is-readable-writable-executable-by-owner-flag, mark #b111000000
+    note <File mode indicating readable, writable, and executable by owner.>
+
+  host is-readable-by-owner-flag, mark #b100000000
+    note <File mode indicating readable by owner.>
+
+  host is-writable-by-owner-flag, mark #b10000000
+    note <File mode indicating writable by owner.>
+
+  host is-executable-by-owner-flag, mark #b1000000
+    note <File mode indicating executable by owner.>
+
+  host is-readable-writable-executable-by-group-flag, mark #b111000
+    note <File mode indicating readable, writable, and executable by group.>
+
+  host is-readable-by-group-flag, mark #b100000
+    note <File mode indicating readable by group.>
+
+  host is-writable-by-group-flag, mark #b10000
+    note <File mode indicating writable by group.>
+
+  host is-executable-by-group-flag, mark #b1000
+    note <File mode indicating executable by group.>
+
+  host is-readable-writable-executable-by-others-flag, mark #b111
+    note <File mode indicating readable, writable, and executable by others.>
+
+  host is-readable-by-others-flag, mark #b100
+    note <File mode indicating readable by others.>
+
+  host is-writable-by-others-flag, mark #b10
+    note <File mode indicating writable by others.>
+
+  host is-executable-by-others-flag, mark #b1
+    note <File mode indicating executable by others.>

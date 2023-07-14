@@ -1,0 +1,60 @@
+
+# https://developer.apple.com/documentation/foundation/filemanager
+
+task read-user-home-link
+  move file-manager/home-directory-for-current-user
+
+task read-user-name
+  move file-manager/ns-user-name
+
+task read-temporary-directory
+  move file-manager/temporary-directory
+
+task read-folder
+  note <List folder items>
+
+task trash-folder
+
+task trash-file
+
+task replace-file
+
+task replace-folder
+
+task copy-file
+
+task copy-folder
+
+task move-file
+
+task move-folder
+
+task make-soft-file-link
+
+task make-hard-file-link
+
+task make-soft-folder-link
+
+task make-hard-folder-link
+
+task test-file-exists
+
+task test-folder-exists
+
+task test-file-is-readable
+
+task test-file-is-writable
+
+task test-file-is-executable
+
+task read-file-metadata
+
+task read-directory-metadata
+
+task test-file-content-is-equal
+  take base
+  take head
+
+task read-current-folder-link
+
+task change-current-folder-link

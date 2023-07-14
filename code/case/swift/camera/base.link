@@ -1,0 +1,52 @@
+
+task check-authorization-status
+  fork case
+    call av-capture-device/authorization-status
+      loan av-media-type/video
+    case read av-authorization-atatus/authorized
+      note <The user has previously granted access to the camera.>
+    case read av-authorization-atatus/not-determined
+      note <The user has not yet been asked for camera access.>
+    case read av-authorization-atatus/denied
+      note <The user has previously denied access.>
+    case read av-authorization-atatus/restricted
+      note <The user can't grant access due to restrictions.>
+
+task request-access
+  wait true
+
+  free granted, like boolean
+
+  call av-capture-device/request-access
+    loan av-media-type/video
+    wait true
+
+task get-default-device
+  call av-capture-device/default
+    loan av-media-type/video
+
+task clear-take-photo-settings
+
+task is-auto-red-eye-reduction-enabled
+  note <A Boolean value that determines whether to use auto red-eye reduction on flash captures.>
+
+form camera
+  take native
+    hide true
+
+  task has-flash
+    loan self/native/has-flash
+
+  task set-flash
+    take mode
+    save self/native-settings/flash-mode
+      stem case
+        loan mode
+        case auto
+          loan av-capture-device/flash-mode/auto
+        case on
+          loan av-capture-device/flash-mode/on
+        case off
+          loan av-capture-device/flash-mode/off
+
+  task clear-settings

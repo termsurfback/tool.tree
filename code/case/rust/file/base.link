@@ -1,0 +1,123 @@
+
+load @tunebond/bolt/code/rust/std/fs
+  take task read-to-string
+    save task rust-read-to-string
+  take host file
+    save host rust-file-form
+  take form file
+    save form rust-file
+  take host open-options
+    save host rust-open-options-form
+  take form open-options
+    save form rust-open-options
+
+load @tunebond/bind/code/shared/code
+  take task has-flag
+
+dock rust-file, form file
+
+task set-size
+  take size, like size-32
+
+task read
+  take path, like text
+
+  call rust-read-to-string
+    loan path
+
+task open
+  take path
+  take flags, like size-8
+
+  save has-read-flag
+    call has-flag
+      loan flags
+      loan can-read-flag
+
+  save has-write-flag
+    call has-flag
+      loan flags
+      loan can-write-flag
+
+  save has-create-flag
+    call has-flag
+      loan flags
+      loan can-create-flag
+
+  save has-append-flag
+    call has-flag
+      loan flags
+      loan can-append-flag
+
+  save has-clear-flag
+    call has-flag
+      loan flags
+      loan can-clear-flag
+
+  call rust-open-options-form/new
+    save options
+
+  test is-true, loan has-read-flag
+    hook true
+      call options/read
+        save options
+        term true
+
+  test is-true, loan has-write-flag
+    hook true
+      call options/write
+        save options
+        term true
+
+  test is-true, loan has-create-flag
+    hook true
+      call options/create
+        save options
+        term true
+
+  test is-true, loan has-append-flag
+    hook true
+      call options/append
+        save options
+        term true
+
+  test is-true, loan has-clear-flag
+    hook true
+      call options/truncate
+        save options
+        term true
+
+  call options/open
+    loan path
+
+form file
+  task get-metadata
+    take self, like self
+    call self/dock/metadata
+      halt take
+
+  task get-permissions
+    take self, like self
+    call self/get-metadata
+      halt take
+      save metadata
+    call metadata/permissions
+
+  task set-permissions
+    take self, like self
+    take flags, like size-16
+
+    call self/get-permissions
+      halt take
+      save permissions
+    call permissions/set_mode
+      loan flags
+    loan self
+
+  task load-as-string
+  task load-as-bytes
+  task seek
+  task rewind
+  task write-at
+  task read-at
+  task flush

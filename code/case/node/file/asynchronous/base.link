@@ -1,0 +1,151 @@
+
+load @tunebond/nest/code/node/file
+  take tree open-head
+  take tree open-result
+  take host fs
+  take form file
+
+form file
+  task read-asynchronously
+  task write-asynchronously
+  task append-asynchronously
+  task prepend-asynchronously
+
+task open
+  wait true
+  fuse open-head, text <Asynchronous open read only>
+  take can-read, like true
+  fuse open-body, text <r>
+
+task open
+  wait true
+  fuse open-head, text <Asynchronous open read and write>
+  take can-read, like true
+  take can-write, like true
+  fuse open-body, text <r+>
+
+task open
+  wait true
+  fuse open-head, text <Asynchronous open create, clear, write>
+  take can-create, like true
+  take can-clear, like true
+  take can-write, like true
+  fuse open-body, text <w>
+
+task open
+  wait true
+  fuse open-head, text <Asynchronous open create, write>
+  take can-create, like true
+  take can-write, like true
+  fuse open-body, text <wx>
+
+task open
+  wait true
+  fuse open-head, text <Asynchronous open create, clear, read, write>
+  take can-create, like true
+  take can-clear, like true
+  take can-read, like true
+  take can-write, like true
+  fuse open-body, text <w+>
+
+task open
+  wait true
+  fuse open-head, text <Asynchronous open create, read, write>
+  take can-create, like true
+  take can-read, like true
+  take can-write, like true
+  fuse open-body, text <wx+>
+
+task open
+  wait true
+  fuse open-head, text <Asynchronous open create, clear, append>
+  take can-create, like true
+  take can-clear, like true
+  take can-append, like true
+  fuse open-body, text <a>
+
+task open
+  wait true
+  fuse open-head, text <Asynchronous open create, append>
+  take can-create, like true
+  take can-append, like true
+  fuse open-body, text <ax>
+
+task open
+  wait true
+  fuse open-head, text <Asynchronous open create, clear, read, append>
+  take can-create, like true
+  take can-clear, like true
+  take can-read, like true
+  take can-append, like true
+  fuse open-body, text <a+>
+
+task open
+  wait true
+  fuse open-head, text <Asynchronous open create, clear, read, append>
+  take can-create, like true
+  take can-read, like true
+  take can-append, like true
+  fuse open-body, text <ax+>
+
+task read
+  wait true
+  take path
+  fuse call-promise-with-callback-result
+    loan read-call
+    loan read-result
+
+task write
+  wait true
+  take path
+  take content
+  fuse call-promise-with-callback-result
+    loan write-call
+    loan write-result
+
+tree open-body
+  take node-flag
+  hook bind
+    fuse open-result
+    save flag, loan node-flag
+    fuse call-promise-with-callback-result
+      loan open-body-call
+      loan open-body-result
+
+tree open-body-call
+  hook bind
+    call fs/open
+      loan path
+      loan flag
+      hook callback
+        take error
+        take descriptor
+
+tree open-body-result
+  hook bind
+    make file
+      bind path, loan path
+      bind descriptor, loan descriptor
+
+tree read-call
+  hook bind
+    call fs/read
+      loan path
+      hook callback
+        take error
+        take buffer
+
+tree read-result
+  hook bind
+    loan buffer
+
+tree write-call
+  hook bind
+    call fs/write
+      loan path
+      hook callback
+        take error
+
+tree write-result
+  hook bind
+    loan void

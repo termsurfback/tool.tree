@@ -1,0 +1,33 @@
+
+# file handling
+# https://github.com/rails/rails/tree/main/activestorage
+form browser-file
+  task upload
+  task download
+
+  task get-last-modified-timestamp
+    take self
+    loan self/dock/last-modified
+
+  task get-name
+    take self
+    loan self/dock/name
+
+  task get-size
+    take self
+    loan self/dock/size
+
+  task get-mime-type
+    take self
+    loan self/dock/type
+
+  task slice
+  task stream
+
+  task get-text
+    take self
+    call self/dock/text
+
+  task get-buffer
+    take self
+    call self/dock/array-buffer

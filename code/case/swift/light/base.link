@@ -1,0 +1,46 @@
+
+task get-light-level
+  take device
+  loan device/native/torch-level
+
+task has-light
+  note <A Boolean value that specifies whether the capture device has a torch.>
+  take device
+  free result, like boolean
+  loan device/native/has-torch
+
+task is-light-available
+  note <Indicates whether the torch is currently available for use.>
+  take device
+  free result, like boolean
+  loan device/native/is-torch-available
+
+task is-light-active
+  note <A Boolean value indicating whether the device's torch is currently active.>
+  take device
+  free result, like boolean
+  loan device/native/is-torch-active
+
+task set-light-mode
+  take device
+  take mode
+
+  call is-true
+    loan device/has-light
+    hook true
+      stem seek
+        call device/native/lock-for-configuration
+        hook fail, back false
+
+      save device/native/torch-mode
+        stem case
+          loan mode
+          case auto
+            loan av-capture-device/torch-mode/auto
+          case on
+            loan av-capture-device/torch-mode/on
+          case off
+            loan av-capture-device/torch-mode/off
+
+      call device/native/unlock-for-configuration
+      back true

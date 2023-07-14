@@ -1,0 +1,39 @@
+
+form response
+  take x-response
+    hide true
+
+  task set-status
+    take code
+    save self/x-response/status-sode
+      loan code
+
+  task set-header-by-key
+
+  task write-utf-8
+    take chunk
+    call self/x-response/write
+      loan chunk
+      text <utf-8>
+
+  task write-utf-16
+    take chunk
+    call self/x-response/write
+      loan chunk
+      text <utf-16>
+
+  task end
+  task redirect
+  task has-header
+  task get-header
+  task remove-header
+  task were-headers-sent
+    loan self/x-response/headers-sent
+  task was-writable-stream-closed
+    loan self/x-response/writable-ended
+  task was-writable-stream-flushed
+    loan self/x-response/writable-finished
+  task get-length-of-body-ready-to-send
+    loan self/x-response/writable-length
+  task send-continue-message
+    loan self/x-response/write-continue
