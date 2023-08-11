@@ -1,9 +1,9 @@
 
-load @tunebond/nest/code/shared
+load @nerdbond/nest/code/shared
   take tree define-each
   take tree access
 
-load @tunebond/nest/code/color
+load @nerdbond/nest/code/color
   take host space
 
 form rgb

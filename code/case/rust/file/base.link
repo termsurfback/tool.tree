@@ -1,5 +1,5 @@
 
-load @tunebond/bolt/code/rust/std/fs
+load @nerdbond/bolt/code/rust/std/fs
   take task read-to-string
     save task rust-read-to-string
   take host file
@@ -11,7 +11,7 @@ load @tunebond/bolt/code/rust/std/fs
   take form open-options
     save form rust-open-options
 
-load @tunebond/bind/code/shared/code
+load @nerdbond/bind/code/shared/code
   take task has-flag
 
 dock rust-file, form file
