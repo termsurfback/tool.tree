@@ -1,9 +1,9 @@
 
-load @wavebond/nest/code/shared
+load @textsurf/nest/code/shared
   take tree define-each
   take tree access
 
-load @wavebond/nest/code/color
+load @textsurf/nest/code/color
   take host space
 
 form rgb

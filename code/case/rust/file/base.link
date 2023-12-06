@@ -1,5 +1,5 @@
 
-load @wavebond/bolt/code/rust/std/fs
+load @textsurf/bolt/code/rust/std/fs
   take task read-to-string
     save task rust-read-to-string
   take host file
@@ -11,7 +11,7 @@ load @wavebond/bolt/code/rust/std/fs
   take form open-options
     save form rust-open-options
 
-load @wavebond/bind/code/shared/code
+load @textsurf/bind/code/shared/code
   take task has-flag
 
 dock rust-file, form file

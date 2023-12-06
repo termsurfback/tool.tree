@@ -1,5 +1,5 @@
 
-load @wavebond/land/code/javascript/promise
+load @textsurf/land/code/javascript/promise
   take task make-javascript-promise
 
 task make-temporary-file
