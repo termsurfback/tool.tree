@@ -1,7 +1,7 @@
 
 # https://github.com/Evercoder/culori
 
-load @textsurf/bolt/code/shared
+load @termsurf/bolt/code/shared
   take tree define-each
 
 fuse define-each, loan space

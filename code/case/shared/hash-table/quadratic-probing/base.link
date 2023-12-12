@@ -1,5 +1,5 @@
 
-load @textsurf/nest/code/shared/hash
+load @termsurf/nest/code/shared/hash
   take task hash-djb2-xor
     save task hash
 
