@@ -7,10 +7,10 @@
 <br/>
 
 <p align='center'>
-  <img src='https://github.com/termsurf/moon.link/blob/make/view/moon.svg?raw=true' height='256'>
+  <img src='https://github.com/termsurf/moon.note/blob/make/view/moon.svg?raw=true' height='256'>
 </p>
 
-<h3 align='center'>moon.link</h3>
+<h3 align='center'>moon.note</h3>
 <p align='center'>
   The BaseLink Environment Tooling Library
 </p>
