@@ -12,7 +12,7 @@
 
 <h3 align='center'>moon.note</h3>
 <p align='center'>
-  The BaseLink Environment Tooling Library
+  The BaseNote Environment Tooling Library
 </p>
 
 <br/>
