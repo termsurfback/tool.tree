@@ -7,12 +7,12 @@
 <br/>
 
 <p align='center'>
-  <img src='https://github.com/termsurf/moon.note/blob/make/view/moon.svg?raw=true' height='256'>
+  <img src='https://github.com/termsurf/moon.leaf/blob/make/view/moon.svg?raw=true' height='256'>
 </p>
 
-<h3 align='center'>moon.note</h3>
+<h3 align='center'>moon.leaf</h3>
 <p align='center'>
-  The BaseNote Environment Tooling Library
+  The SeedLeaf Environment Tooling Library
 </p>
 
 <br/>
