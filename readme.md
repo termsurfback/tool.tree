@@ -7,12 +7,12 @@
 <br/>
 
 <p align='center'>
-  <img src='https://github.com/termsurf/moon.star/blob/make/view/moon.svg?raw=true' height='256'>
+  <img src='https://github.com/termsurf/moon.tree/blob/make/view/moon.svg?raw=true' height='256'>
 </p>
 
-<h3 align='center'>moon.star</h3>
+<h3 align='center'>moon.tree</h3>
 <p align='center'>
-  The Star Environment Tooling Library
+  The BaseTree Environment Tooling Library
 </p>
 
 <br/>
