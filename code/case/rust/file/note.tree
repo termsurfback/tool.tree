@@ -1,5 +1,5 @@
 
-load @termsurf/bolt/code/rust/std/fs
+load @termsurf/base/code/rust/std/fs
   take task read-to-string
     save task rust-read-to-string
   take host file
